@@ -1,0 +1,26 @@
+      <table id='statuses' class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Объект</th>
+            <th>Система</th>
+            <th>Название процесса</th>
+            <th>Текущее значение</th>
+            <th>Описание</th>
+          </tr><!--Объект, Система, Название прцесса, Текущее значение, Описание -->
+        </thead>
+        <tbody>
+          <% @statuses.each do |s| %>
+            <% if s.status_type == Status::DANGER %>
+            <tr class="danger">
+            <% else %>
+            <tr>
+            <% end %>
+              <td><%= s.object %></td>
+              <td><%= s.system%></td>
+              <td><%= s.process %></td>
+              <td><%= s.current %></td>
+              <td><%= s.description %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>

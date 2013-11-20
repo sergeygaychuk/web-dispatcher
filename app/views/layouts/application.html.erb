@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dispatch</title>
+  <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/ui-lightness/jquery-ui.css" />
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="../" class="navbar-brand">Dispatch</a>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar">
+        <ul class="nav sidenav">
+          <li>
+            <a href="#/">Events</a>
+            <ul class="nav">
+              <li>
+              <a href="#/events/dangers">Dangers <span class="badge" data-bind="text:dangers_badge"></span></a>
+              </li>
+              <li>
+              <a href="#/events/informations">Informations <span class="badge" data-bind="text:info_badge"></span></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="insert_container" class="col-md-9 main">
+      <table id='statuses' class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Объект</th>
+            <th>Система</th>
+            <th>Название процесса</th>
+            <th>Текущее значение</th>
+            <th>Описание</th>
+          </tr>
+        </thead>
+        <tbody data-bind="foreach: statuses">
+          <tr data-bind="css: {'danger': status_type == 0}">
+            <td data-bind="text: object"></td>
+            <td data-bind="text: system"></td>
+            <td data-bind="text: process"></td>
+            <td data-bind="text: current"></td>
+            <td data-bind="text: description"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>
