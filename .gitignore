@@ -15,4 +15,5 @@
 /log/*.log
 /log
 /tmp
+/public/assets
 /bin
