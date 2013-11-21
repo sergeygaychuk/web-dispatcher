@@ -67,7 +67,7 @@ $(document).ready(function() {
       }).subscribe(_that.statuses);
     });
 
-    var dispatcher = new WebSocketRails('localhost:3000/websocket');
+    var dispatcher = new WebSocketRails('localhost:3001/websocket');
     var channel = dispatcher.subscribe('statuses');
     var rxWebSocket = Rx.Observable.
       fromWebSocket(channel, 'new').
