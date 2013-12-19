@@ -8,6 +8,16 @@ Rx.Observable.fromWebSocket = function(chann, name) {
   }).publish().refCount();
 };
 
+Rx.Observable.fromSSE = function(event_source, name) {
+  return Rx.Observable.create(function(observer){
+    function handler() {
+      observer.onNext(arguments);
+    };
+    event_source.addEventListener(name, handler);
+    return function(){};
+  }).publish().refCount();
+};
+
 ko.subscribable.fn.toRx = function(startWithCurrentValue){
   var source = this;
   return Rx.Observable.createWithDisposable(function(observer){

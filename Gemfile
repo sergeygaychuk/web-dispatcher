@@ -32,7 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'thin'
+gem 'puma'
 
 gem 'websocket-rails'
 gem 'knockoutjs-rails'
@@ -51,3 +51,6 @@ gem 'sorcery'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'sidekiq'
+gem 'sidetiq'
+

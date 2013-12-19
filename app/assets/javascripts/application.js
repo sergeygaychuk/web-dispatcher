@@ -67,6 +67,11 @@ $(document).ready(function() {
       }).subscribe(_that.statuses);
     });
 
+    var source = new EventSource('statuses/listen');
+    source.addEventListener('inserted', function(){
+      console.log(arguments);
+    });
+
     var dispatcher = new WebSocketRails(window.location.hostname + ':3001/websocket');
     var channel = dispatcher.subscribe('statuses');
     var rxWebSocket = Rx.Observable.

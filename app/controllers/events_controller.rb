@@ -6,6 +6,9 @@ class EventsController < ApplicationController
 
   def dangers
     @statuses = Status.dangers
+
+    p "Queue size: #{Sidekiq::Queue.new.size}"
+
     render json: @statuses
   end
 

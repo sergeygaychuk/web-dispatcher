@@ -1,5 +1,4 @@
 Dispatch::Application.routes.draw do
-  post "status/create"
   # get "home/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -15,6 +14,7 @@ Dispatch::Application.routes.draw do
   get 'events' => 'home#events'
   get 'dangers' => 'home#dangers'
   get 'informations' => 'home#informations'
+  get 'statuses/listen' => 'status#listen'
 
   resources :user_sessions
   get 'login' => 'user_sessions#new', :as => :login
